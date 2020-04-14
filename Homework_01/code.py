@@ -75,7 +75,7 @@ x = np.concatenate((np.ones([12 * 471, 1]), x), axis=1)
 # 学习率
 lr = 0.1
 # 迭代次数
-iter_time = 1000000
+iter_time = 100000
 # adagrad表达式为：w'=w-lr*gd/sqrt(Σgd^2)，为了避免分母为0，在分母上加上一个很小的epsilon(ε)
 eps = 0.00000000001
 adagrad = np.zeros([dim, 1])
