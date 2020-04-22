@@ -12,7 +12,7 @@ data = pd.read_csv('./train.csv', encoding='big5')  # 'big5'编码：繁体中�
 data = data.iloc[:, 3:]
 # 将所有值为'NR'的数据修改为0
 data[data == 'NR'] = 0
-data = data.to_numpy()
+data = data.to_numpy(dtype=float)
 # print(raw_data)
 
 month_data = {}
@@ -77,7 +77,7 @@ lr = 0.1
 # 迭代次数
 iter_time = 100000
 # adagrad表达式为：w'=w-lr*gd/sqrt(Σgd^2)，为了避免分母为0，给分母上加上一个很小的epsilon(ε)
-eps = 0.00000000001
+eps = 1e-10
 adagrad = np.zeros([dim, 1])
 
 # 训练回归模型：y=w_1*x+w_2*x+...+b
